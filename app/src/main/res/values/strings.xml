@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Project Akhir Noval Dian Nofal</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Database related strings -->
+    <string name="input_data_karyawan">Input Data Karyawan</string>
+    <string name="lihat_data_karyawan">Lihat Data Karyawan</string>
+    <string name="data_karyawan">Database Karyawan</string>
+
+    <string-array name="sensor_options">
+        <item>Accelerometer</item>
+        <item>Proximity</item>
+        <item>Gyroscope</item>
+    </string-array>
+</resources>
