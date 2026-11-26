@@ -1,62 +1,85 @@
-# 📱 Aplikasi Manajemen & Presensi Karyawan Berbasis Android
+# Aplikasi Manajemen dan Presensi Karyawan Berbasis Android
 
-[![Android](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
-[![Java](https://img.shields.io/badge/Language-Java-ED8B00?logo=openjdk&logoColor=white)](https://www.java.com/)
-[![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite&logoColor=white)](https://sqlite.org/)
-[![Google Maps](https://img.shields.io/badge/Service-Google%20Maps%20API-4285F4?logo=google-maps&logoColor=white)](https://developers.google.com/maps)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-> **Aplikasi Mobile Android untuk Manajemen Data Karyawan, Pelacakan Lokasi (Maps), Sensor Perangkat, dan Pengenalan Suara (Speech Recognition).**  
-> Dikembangkan oleh **Dian Tri Yuniarti, dkk.** sebagai proyek akhir mata kuliah Pemrograman Mobile (Universitas Pamulang).
+Mata Kuliah: Pemrograman Mobile  
+Program Studi S1 Teknik Informatika, Universitas Pamulang  
+Pengembang: Dian Tri Yuniarti, dkk.
 
 ---
 
-## 🌟 Fitur Utama
+## Deskripsi Aplikasi
 
-- **🔐 Registrasi & Otentikasi Pengguna**:
-  - Pendaftaran akun baru dan login aman dengan validasi form lokal.
-- **👥 CRUD Data Karyawan (Create, Read, Update, Delete)**:
-  - Input biodata karyawan, jabatan, kontak, dan departemen.
-  - Tampilan daftar karyawan interaktif menggunakan `RecyclerView` dan custom `KaryawanAdapter`.
-- **📍 Integrasi Google Maps API (`MapActivity`)**:
-  - Pelacakan koordinat lokasi kantor / presensi karyawan berbasis peta digital.
-- **🎙️ Fitur Speech Recognition (`SpeechRecognizer`)**:
-  - Fitur perintah suara untuk pencarian atau pengisian data cepat melalui mikrofon smartphone.
-- **🧭 Integrasi Sensor Smartphone (`sensorActivity`)**:
-  - Pembacaan sensor perangkat mobile untuk utilitas pendukung aplikasi.
-- **💾 Basis Data Lokal SQLite (`DatabaseHelper`)**:
-  - Penyimpanan data offline-first yang andal dan ringan tanpa membutuhkan koneksi internet konstan.
+Aplikasi mobile berbasis Android native untuk mendukung administrasi ketenagakerjaan, mencakup pencatatan data karyawan, penentuan titik lokasi kehadiran berbasis peta digital, perekaman input suara, serta pembacaan sensor smartphone.
+
+Data karyawan disimpan secara lokal pada perangkat menggunakan basis data embedded SQLite untuk memastikan aplikasi tetap dapat beroperasi secara offline.
 
 ---
 
-## 💻 Tech Stack
+## Fitur Utama
 
-- **Platform**: Android OS
-- **Bahasa Pemrograman**: Java
-- **IDE**: Android Studio
-- **Build System**: Gradle (Kotlin DSL / Groovy)
-- **Database**: SQLite (Android Native SQLiteOpenHelper)
-- **APIs & SDKs**: Google Play Services (Maps), Android Sensor Framework, SpeechRecognizer API
+1. Autentikasi Pengguna
+   * Form pendaftaran akun baru (RegisterActivity)
+   * Login pengguna dengan validasi input (MainActivity)
+
+2. Manajemen Data Karyawan (CRUD)
+   * Input biodata karyawan, NIK, jabatan, dan nomor telepon
+   * Tampilan daftar karyawan interaktif menggunakan RecyclerView dan KaryawanAdapter
+   * Pencarian, pengeditan, dan penghapusan data karyawan
+
+3. Integrasi Peta Digital (Google Maps API)
+   * Penandaan koordinat geografis (latitude dan longitude) lokasi presensi (MapActivity)
+
+4. Pengenalan Suara (Speech Recognition)
+   * Konversi input suara mikrofon menjadi teks untuk pencarian atau pengisian formulir cepat (SpeechRecognizer)
+
+5. Integrasi Sensor Smartphone
+   * Pembacaan sensor perangkat melalui Android Sensor Framework (sensorActivity)
 
 ---
 
-## 🚀 Panduan Menjalankan
+## Arsitektur Teknologi
 
-1. **Clone repository ini:**
+* Platform: Android OS
+* Bahasa Pemrograman: Java
+* IDE: Android Studio
+* Build System: Gradle
+* Basis Data Lokal: SQLite (SQLiteOpenHelper)
+* Pustaka Eksternal: Google Play Services Maps, Android Sensor API, Android SpeechRecognizer
+
+---
+
+## Struktur Direktori
+
+```text
+aplikasi-android-karyawan/
+├── app/
+│   ├── src/main/java/com/example/projectakhir_noval_dian_nofal/
+│   │   ├── DashboardActivity.java        # Navigasi utama
+│   │   ├── DatabaseHelper.java           # Pengendali skema dan query SQLite
+│   │   ├── InputDataKaryawanActivity.java# Formulir input data
+│   │   ├── Karyawan.java                 # Model entitas data karyawan
+│   │   ├── KaryawanAdapter.java          # Adapter viewholder RecyclerView
+│   │   ├── LihatDataActivity.java        # List view data karyawan
+│   │   ├── MainActivity.java             # Form login
+│   │   ├── MapActivity.java              # Integrasi Google Maps
+│   │   ├── RegisterActivity.java         # Form registrasi
+│   │   ├── sensorActivity.java           # Pembacaan sensor
+│   │   └── SpeechRecognizer.java         # Pengenalan suara
+│   └── src/main/res/                     # Layout XML, drawable, dan nilai strings
+├── build.gradle.kts
+└── README.md
+```
+
+---
+
+## Panduan Menjalankan
+
+1. Clone repositori:
    ```bash
    git clone git@github.com:diantriyuniarti/aplikasi-android-karyawan.git
    ```
-2. Buka **Android Studio**.
-3. Pilih **Open an Existing Project** dan arahkan ke folder `aplikasi-android-karyawan`.
-4. Tunggu proses **Gradle Sync** hingga selesai.
-5. Jalankan aplikasi pada **Emulator Android** atau perangkat HP fisik dengan mode USB Debugging aktif.
 
----
+2. Buka Android Studio dan pilih menu **Open** pada direktori repositori.
 
-## 👩‍💻 Pengembang
+3. Tunggu proses sinkronisasi Gradle (Gradle Sync) selesai.
 
-**Dian Tri Yuniarti**  
-- Lulusan S1 Teknik Informatika — Universitas Pamulang (IPK: 3.65)  
-- Portofolio Resmi: [diantriyuniarti.github.io](https://diantriyuniarti.github.io)  
-- LinkedIn: [Dian Tri Yuniarti](https://linkedin.com/in/diantriyuniarti)  
-- Email: `diantriyuniarti025@gmail.com`
+4. Jalankan aplikasi pada Android Emulator atau perangkat fisik yang terhubung via USB Debugging.
